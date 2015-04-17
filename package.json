@@ -7,5 +7,6 @@
   "license": "MIT",
   "dependencies": {
     "request": "^2.55.0"
-  }
+  },
+  "repository": "matteocontrini/node-periscope-stream"
 }

@@ -7,7 +7,7 @@ function periscope(url, callback) {
 	
 	request(api, function(error, response, body) {
 		if (error || response.statusCode != 200) {
-			callback('Response error: ' + respones.statusCode);
+			callback('Response error: ' + respone.statusCode);
 			return;
 		}
 		

@@ -1,6 +1,6 @@
 {
   "name": "node-periscope-stream",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Get details about a Periscope live",
   "main": "periscope.js",
   "keywords": [

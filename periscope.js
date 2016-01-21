@@ -1,8 +1,12 @@
 var request = require('request');
 
 function periscope(url, callback) {
-	var id = url.match(/periscope.tv\/w\/(.*)/i)[1];
+	var matches = url.match(/periscope.tv\/w\/(.*)/i);
+	if (!matches) {
+		return;
+	}
 	
+	var id = matches[1];
 	var api = 'https://api.periscope.tv/api/v2/getAccessPublic?broadcast_id=' + id;
 	
 	request(api, function(error, response, body) {

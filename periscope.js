@@ -2,19 +2,14 @@ var request = require('request');
 
 function periscope(url, callback) {
 
-
 	let idFinder = function(url) {
 
 		let pscp = url.match(/pscp.tv\/w\/(.*)/i);
 		let peri = url.match(/periscope.tv\/w\/(.*)/i);
 
-		if (pscp !== null) {
-			return pscp[1];
-		}
-		if (peri !== null) {
-			return peri[1];
-		} else return null;
-
+		if (pscp !== null) return pscp[1];
+		if (peri !== null) return peri[1];
+		else return null;
 	};
 
 	if (idFinder(url) !== null) {

@@ -1,0 +1,43 @@
+{
+    "rules": {
+        "indent": ["error", "tab"],
+        "quotes": ["error", "single"],
+        "quote-props": ["warn", "as-needed"],
+        "semi": ["error", "always"],
+        "keyword-spacing": ["error"],
+        "no-unused-vars": ["warn", { "vars": "all", "args": "none" }],
+        "no-console": ["off"],
+        "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+        "no-new-object": ["error"],
+        "no-array-constructor": ["error"],
+        "space-before-blocks": ["error", "always"],
+        "space-before-function-paren": ["error", "never"],
+        "space-in-parens": ["error", "never"],
+        "space-infix-ops": ["error"],
+        "space-unary-ops": ["error", { "words": true, "nonwords": false }],
+        "object-curly-spacing": ["error", "always"],
+        "array-bracket-spacing": ["error", "never"],
+        "guard-for-in": "error",
+        "no-spaced-func": "error",
+        "no-trailing-spaces": ["error", { "skipBlankLines": true }],
+        "handle-callback-err": "error",
+        "comma-spacing": ["error", {"before": false, "after": true}],
+        "one-var": ["error", "never"],
+        "no-redeclare": 0,
+        "comma-dangle": ["error", "never"],
+        "arrow-parens": ["warn", "always"],
+        "arrow-spacing": ["error"],
+        "no-confusing-arrow": ["error"],
+        "no-useless-computed-key": ["error"],
+        "object-shorthand": ["warn", "methods"],
+        "prefer-arrow-callback": ["error"],
+        "prefer-rest-params": ["warn"],
+        "template-curly-spacing": ["warn", "never"]
+    },
+    "env": {
+        "node": true,
+        "es6": true,
+        "mocha": true
+    },
+    "extends": "eslint:recommended"
+}

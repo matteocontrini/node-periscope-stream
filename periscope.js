@@ -1,36 +1,35 @@
-var request = require('request');
+const needle = require('needle');
 
 function periscope(url, callback) {
+	let id = findId(url);
 
-	let idFinder = function(url) {
+	if (id) {
+		let api = 'https://api.periscope.tv/api/v2/getAccessPublic?broadcast_id=' + id;
 
-		let pscp = url.match(/pscp.tv\/w\/(.*)/i);
-		let peri = url.match(/periscope.tv\/w\/(.*)/i);
-
-		if (pscp !== null) return pscp[1];
-		if (peri !== null) return peri[1];
-		else return null;
-	};
-
-	if (idFinder(url) !== null) {
-
-		var api = 'https://api.periscope.tv/api/v2/getAccessPublic?broadcast_id=' + idFinder(url);
-
-		request(api, function(error, response, body) {
-			if (error || response.statusCode != 200) {
-				callback('Response error: ' + response.statusCode);
-				return;
+		needle.get(api, (error, response, body) => {
+			if (error) {
+				callback(new Error('Network error'));
 			}
-
-			var obj = JSON.parse(body);
-
-			callback(null, obj);
+			else if (response.statusCode != 200) {
+				callback(new Error('Response error: ' + response.statusCode));
+			}
+			else {
+				callback(null, body);
+			}
 		});
-
-	} else {
-		return callback(null, "Not a valid URL.")
+	}
+	else {
+		return callback(new Error('Invalid URL'));
 	}
 }
 
-module.exports = periscope;
+function findId(url) {
+	let pscp = url.match(/pscp.tv\/w\/(.*)/i);
+	let peri = url.match(/periscope.tv\/w\/(.*)/i);
 
+	if (pscp !== null) return pscp[1];
+	if (peri !== null) return peri[1];
+	else return null;
+}
+
+module.exports = periscope;

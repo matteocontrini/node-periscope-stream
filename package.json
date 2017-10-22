@@ -1,7 +1,7 @@
 {
   "name": "node-periscope-stream",
   "version": "0.1.5",
-  "description": "Get details about a Periscope live",
+  "description": "Get details about a Periscope live stream",
   "main": "periscope.js",
   "keywords": [
     "periscope",
@@ -10,10 +10,13 @@
   "author": "Matteo Contrini <m.contrini@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "request": "^2.55.0"
+    "needle": "^2.0.1"
   },
   "repository": "matteocontrini/node-periscope-stream",
   "bugs": {
     "url": "https://github.com/matteocontrini/node-periscope-stream/issues"
+  },
+  "devDependencies": {
+    "eslint": "^4.9.0"
   }
 }
